@@ -14,6 +14,7 @@ export default function Home() {
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
       <Navbar />
 
+      {/* Main section */}
       <section className="main-section">
         <div className="page-heading">
           <h1>Track You Applications & Resume Ratings</h1>
@@ -21,6 +22,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Resume list */}
       {resumes.map((resume) => (
         <div>
           <h1>{resume.jobTitle}</h1>

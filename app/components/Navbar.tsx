@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+// Navbar component
 const Navbar = () => {
   return (
     <nav className="navbar">
