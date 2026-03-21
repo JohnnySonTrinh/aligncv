@@ -1,7 +1,9 @@
-.DS_Store
-.env
-/node_modules/
-
-# React Router
-/.react-router/
-/build/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+.venv/
+dist/
+build/
+snake_leaderboard.json

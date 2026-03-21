@@ -1,87 +1,51 @@
-# Welcome to React Router!
+# One-Shot Snake Game
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Terminal-first Snake built with Python and the standard library.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- `curses`-based gameplay inside the terminal
+- Colorful arcade-style HUD, menu, and board accents
+- Persistent top-5 leaderboard stored in `snake_leaderboard.json`
+- Power-ups:
+  - `2X` doubles food score for a limited time
+  - `FAST` temporarily increases game speed
+  - `SLOW` temporarily decreases game speed
+- Menu flow for play, leaderboard, replay, and quit
+- Safe terminal handling through `curses.wrapper(...)`
 
-## Getting Started
+## Requirements
 
-### Installation
+- Python `3.11+`
+- A terminal with `curses` support
 
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
+## Run
 
 ```bash
-npm run dev
+PYTHONPATH=src python3 -m snake_game
 ```
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
+Or install it locally and use the script:
 
 ```bash
-npm run build
+python3 -m pip install -e .
+snake-game
 ```
 
-## Deployment
+## Controls
 
-### Docker Deployment
+- Arrow keys or `WASD`: move
+- `P`: pause
+- `Q`: end the current run
+- `Enter`: confirm menu selections
 
-To build and run using Docker:
+## Game Notes
 
-```bash
-docker build -t my-app .
+- Food is shown as `*`
+- Power-ups are color-coded and shown as `2`, `>`, or `<`
+- Snake head is `@`, body is `o`
+- Every third food can spawn a power-up
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+## Leaderboard
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+The game stores the top five scores in `snake_leaderboard.json` in the project root. If the file is missing or corrupted, the game safely falls back to an empty leaderboard.
